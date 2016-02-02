@@ -1,0 +1,44 @@
+
+//import java.io.BufferedReader;
+import java.util.Scanner;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Dictionary;
+import java.util.Hashtable;
+import java.util.*;
+import java.io.*;
+
+class test {
+    public static void main(String args[] ) throws Exception {
+    	Scanner sc = new Scanner(System.in);
+    	int test = sc.nextInt();
+    	for(int i=0;i<test;i++){
+    		int num = sc.nextInt();
+    		int[] kk = new int[num];
+    		for(int k=0;k<num;k++){
+    			kk[k]=sc.nextInt();
+    		}
+    		Arrays.sort(kk);
+    		int[] diff = new int[num];
+    		int dif= Math.abs(kk[0]-kk[1]);
+    		int count=0;
+    		for(int h=0;h<num-1;h++){
+    			diff[h]= Math.abs(kk[h]-kk[h+1]);
+    		}
+    		for(int p =0;p<diff.length-1;p++){
+    			
+    			if(dif!=diff[p]){
+    				count++;
+    				break;
+    			}
+    		}
+    		if(count>=1){
+    			System.out.println("NO");
+    			
+    		}
+    		else{
+    			System.out.println("YES");
+    		}
+    	}
+    }
+}
