@@ -1,0 +1,66 @@
+import java.lang.reflect.Array;
+//import java.io.BufferedReader;
+import java.util.*;
+import java.io.*;
+
+class mysort{
+	List<String> mylist = new ArrayList<String>();
+	public Comparator desc = new Comparator<ss>(){
+		int count=0,max=0;
+		String s;
+		@Override
+		public int compare(ss s1, ss s2) {
+			return -s2.name.compareTo(s1.name);
+		}
+		
+	};
+}
+class ss{
+	String name;
+}
+
+class test {
+    public static void main(String args[] ) throws Exception {
+    	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    	int test = Integer.parseInt(br.readLine().trim());
+    	StringTokenizer st;
+    	mysort mm = new mysort();
+    	ss[] myss = new ss[test];
+    	String s;
+    	String [] ss = new String[test];
+    	for(int i=0;i<test;i++){	
+    		s= br.readLine().trim();
+    		st= new StringTokenizer(s);
+    		myss[i] = new ss();
+    		if(st.hasMoreTokens()){
+    		myss[i].name=st.nextToken();
+    		
+    		}
+    	}
+    	int [] arr = new int[test];
+    	Arrays.sort(myss, mm.desc);
+    	String printval=null;
+    	int max=0,count=0;
+    	for(int i=0;i<test-1;i++){
+    		int[] acount = new int[test];
+    		
+    		List<String> ll = new ArrayList<String>();
+    		if(myss[i].name.equals(myss[i+1].name)){
+    			count++;
+    			if(max<count){
+    			
+    			max=count;
+    			printval=myss[i].name;
+    			}
+    		}
+    		else{
+    			count=0;
+    		}
+    		
+    	}
+    
+    	System.out.println(printval);	
+    	
+    }
+}
+
