@@ -1,0 +1,104 @@
+
+
+import java.util.Scanner;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Dictionary;
+import java.util.Hashtable;
+
+class test {
+    public static void main(String args[] ) throws Exception {
+    	Scanner sc = new Scanner(System.in);
+    	int test = sc.nextInt();
+    	int op = 0;
+    	for(int i=0;i<test;i++){
+    		String s =sc.next();
+    		String t= sc.next();
+    		if(s.equals(t)){
+    			op=0;
+    		}
+    		else{
+       		char[] ss= s.toCharArray();
+    		char [] left = new char[ss.length];
+    		char[] ts = t.toCharArray();
+    		
+    		Arrays.sort(ss);
+    		Arrays.sort(ts);
+    		
+    		for(int k=0;k<ss.length;k++){
+			     for(int j=0;j<ts.length;j++){
+				if(ss[k]==ts[j] && (ss[k]!='\0'&&ts[j]!='\0')){
+					ss[k]='\0';
+					ts[j]='\0';
+					break;
+				}
+			}
+		}
+    	int m=0,n=0;
+    	char[] oarr = {'\0'};
+    	char[] iarr = {'\0'};
+    	
+    		if(ss.length>ts.length){
+    			m=ss.length;
+    			n=ts.length;
+    			oarr = ts;
+    			iarr = ss;
+    			
+    		}
+    		else if(ss.length<ts.length){
+    			m=ts.length;
+    			n=ss.length;
+    			oarr =  ss;
+    			iarr = ts;
+    			
+    		}
+    		for(int k=0;k<n;k++){
+			     for(int j=0;j<m;j++){
+			    	if((oarr[k]==iarr[j])&&(oarr[k]!='\0'&& iarr[j]!='\0')){
+			    		oarr[k]='\0';
+			    		iarr[j]='\0';
+			    		break;
+			    	}
+			    }
+			if(ss.length>ts.length){
+		    		ts=oarr;
+		    		ss=iarr;	
+		    		}
+			else if(ss.length<ts.length){
+    			 ss=oarr;
+    			ts =iarr;
+    			
+    		}
+     
+			}
+    		
+    		Arrays.sort(ss);
+    		Arrays.sort(ts);
+    		int diff= ss.length-ts.length;
+    		int count = 0;
+    		count=Math.abs(diff);
+    		int h=0;
+    		int hcount=0;
+    		int min = Math.min(ss.length, ts.length);
+    		while(h<min){
+    			if(ss[h]!='\0'&& ts[h]!='\0'){
+    				hcount++;
+    				h++;
+    			}
+    			else{
+    			h++;
+    			}
+    		}
+    		
+    		op=count+(hcount*2);
+    		
+    	}
+    		System.out.println(op);	
+    	
+    	}
+    	
+    
+    
+    }
+}
+
