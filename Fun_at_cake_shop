@@ -1,0 +1,39 @@
+
+//import java.io.BufferedReader;
+import java.util.Scanner;
+import java.util.Arrays;
+import java.util.Dictionary;
+import java.util.Hashtable;
+
+class test {
+    public static void main(String args[] ) throws Exception {
+    	Scanner sc = new Scanner(System.in);
+    	int cake =sc.nextInt();
+    	int round=0;
+    	int cha=0,dra=0,dcount=0,ccount=0;
+    	while(cake!=0){
+    		round++;
+    		dra = cake-round;
+    		cake=dra;
+    		if(cake<=0){
+    			dcount++;
+    			break;
+    		}
+    		else{
+    		cha=cake-(round*round);
+    		cake=cha;
+    		if(cake<=0){
+    			ccount++;
+    			break;
+    		}
+    		}
+    	}
+    	if(dcount>0){
+    		System.out.println("Darshak");
+    	}
+    	if(ccount>0){
+    		System.out.println("Chandan");
+    	}
+    }
+}
+
