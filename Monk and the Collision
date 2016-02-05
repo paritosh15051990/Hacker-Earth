@@ -1,0 +1,33 @@
+
+import java.util.*;
+
+public class test {
+
+	public static void main(String[] args) {
+		 Scanner in = new Scanner(System.in);
+	      int test =in.nextInt();
+	      int number=0,hfunc,val,count;
+	      //Hashtable<Integer,Integer> hh = new Hashtable<Integer,Integer>();
+	      for(int i=0;i<test;i++){
+	    	  count=0;
+	    	  int[] harray = new int[10];
+	    	  Arrays.fill(harray, -1);
+	    	  number=in.nextInt();
+	    	  for(int j=0;j<number;j++){
+	    		  val=in.nextInt();
+	    		  hfunc = val%10;
+	    		  harray[hfunc]++; 
+	    	  }
+	      
+	      int count1[] = new int[10];
+	      //System.out.println(number);
+	      for(int k=0;k<=9;k++){
+	    	 if(harray[k]>=1){
+	    		 count+=harray[k];
+	    	 }
+	    	}	
+	      System.out.println(count);
+	      }
+	}
+
+}
