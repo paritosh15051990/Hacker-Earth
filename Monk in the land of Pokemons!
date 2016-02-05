@@ -1,0 +1,41 @@
+import java.util.*;
+import java.io.*;
+
+class test {
+	public static void main(String args[]) throws Exception {
+		Scanner sc = new Scanner(System.in);
+		Runtime runtime = Runtime.getRuntime();
+		int test = sc.nextInt();
+		int val1, val2;
+
+		for (int i = 0; i < test; i++) {
+			int entry = sc.nextInt();
+			ArrayList<Integer> key = new ArrayList<Integer>();
+			ArrayList<Integer> val = new ArrayList<Integer>();
+			List<Object> mylistkey = new ArrayList<Object>();
+			List<Object> mylistvalue = new ArrayList<Object>();
+			for (int j1 = 0; j1 < entry; j1++) {
+				val1 = sc.nextInt();
+				val2 = sc.nextInt();
+				key.add(val1);
+				val.add(val2);
+					int count = 0;
+							if (key.get(j1) != val.get(j1)) {
+								mylistkey.add(key.get(j1));
+								if (mylistkey.contains(val.get(j1))) {
+									Object t = val.get(j1);
+									mylistkey.remove(t);
+								} 
+
+								
+							}
+				}
+			if (!(mylistkey.isEmpty())) {
+				System.out.println(mylistkey.size());
+				mylistkey.clear();
+
+			}
+		}
+
+	}
+}
