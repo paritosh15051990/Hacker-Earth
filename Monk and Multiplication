@@ -1,0 +1,34 @@
+
+import java.util.*;
+
+public class test {
+
+	public static void main(String[] args) {
+		PriorityQueue <Long> kk = new PriorityQueue<Long>();
+		PriorityQueue <Integer> kk1 = new PriorityQueue<Integer>();
+		Scanner sc = new Scanner(System.in);
+		int num = sc.nextInt();
+		long val;
+		long mul=1L;
+		int pee;
+		for(int i=0;i<num;i++){
+			val = sc.nextInt();
+			kk.add(val);
+			if(kk.size()<=2){
+				System.out.println("-1");
+			}
+			else{
+				while(kk.size()!=3){
+					kk.poll();
+				}
+			Object[] arr = new Object[kk.size()];
+			arr=kk.toArray();
+			mul=1;
+			mul=(long)arr[0]*(long)arr[1]*(long)arr[2];
+			System.out.println(mul);
+			}
+			
+		}
+	}
+
+}
