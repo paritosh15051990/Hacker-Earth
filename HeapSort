@@ -1,0 +1,51 @@
+package JAVA_Collection;
+
+import java.util.*;
+
+public class test {
+	static Scanner sc = new Scanner(System.in);
+	static int val;
+	static int row = sc.nextInt();
+	static int fan = sc.nextInt();
+	static int[] arr = new int[row];
+
+	public static void main(String[] args) {
+		for (int i = 0; i < row; i++) {
+			val = sc.nextInt();
+			if (val >= 1 && val <= 1000000) {
+				arr[i] = val;
+			}
+		}
+		for (int j = (arr.length - 1); j >= 0; j--) {
+			heapcall(arr, j);
+		}
+		for (int j =0; j < arr.length; j++) 
+		System.out.println(arr[j]);
+	}
+
+	public static void swap(int j, int largest) {
+		int t = arr[largest];
+		arr[largest] = arr[j];
+		arr[j] = t;
+	}
+	public static void heapcall(int[] arr1, int index){
+		int left = (2*index)+1;
+		int right = (2*index)+2;
+		int largest =0;
+		if(left<arr1.length && arr[left]>arr1[index]){
+			largest = left;
+		}
+		else{
+			largest = index;
+		}
+		if(right<arr1.length && arr1[right]>arr1[largest]){
+			largest = right;
+		}
+		
+		if(largest!=index){
+			swap(index,largest);
+			heapcall(arr1,largest);
+		}
+	}
+
+}
