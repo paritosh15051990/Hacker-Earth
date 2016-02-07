@@ -20,6 +20,9 @@ public class test {
 			for (int j = (arr.length - 1); j >= 0; j--) {
 				heapcall(arr, j);
 			}
+				count=count+arr[0];
+				fan--;
+				arr[0]=arr[0]-1;
 			
 		}
 		System.out.println(count);
