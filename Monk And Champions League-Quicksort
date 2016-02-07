@@ -1,0 +1,63 @@
+package JAVA_Collection;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.*;
+class comp{
+	public Comparator desc = new Comparator<check>(){
+
+		@Override
+		public int compare(check c1, check c2) {
+			
+			Integer a1 = c1.num;
+			Integer a2 = c2.num;
+			// TODO Auto-generated method stub
+			return -(a1.compareTo(a2));
+		}
+		
+	};
+}
+
+class check{
+	int num;
+}
+
+public class test {
+	
+
+	public static void main(String[] args) {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		Scanner sc = new Scanner(System.in);
+		int row = sc.nextInt();
+		int val;
+		 int fan = sc.nextInt();
+		 int[] arr = new int[row];
+		 check[] check = new check[row];
+		 comp cc = new comp();
+		for (int i = 0; i < row; i++) {
+			val = sc.nextInt();
+			if (val >= 1 && val <= 1000000) {
+				check[i] = new check();
+				check[i].num=val;
+			}
+		}
+		Arrays.sort(check,cc.desc);
+		int count =0,i=0;
+		while(fan!=0){
+			//System.out.println("cha");
+			if((check[0].num>=check[1].num)){
+				count=count+check[0].num;
+				fan=fan-1;;
+				--check[0].num;
+			}
+			else{
+				Arrays.sort(check,cc.desc);
+			}
+			}
+		System.out.println(count);
+		}
+	
+	}
+
+	
