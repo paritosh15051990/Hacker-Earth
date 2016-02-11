@@ -1,0 +1,37 @@
+
+
+import java.util.*;
+
+public class test {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int test = sc.nextInt();
+		int city,count=0;
+		String name;
+		ArrayList<Character> arr;
+		Object freq=null;
+		for (int j = 0; j < test; j++) {
+			count=0;
+			city = sc.nextInt();
+			arr = new ArrayList<Character>();
+			for (int k = 0; k < city; k++) {
+				name = sc.next();
+				if (name.length() <= 10 && name.length() >= 1) {
+					arr.add(name.charAt(0));
+				}
+				freq = Collections.frequency(arr, arr.get(k));
+				if((int) freq>1){
+					count++;
+				}
+			}
+			
+			
+			if(count>0){
+				System.out.println("NO");
+			}
+			else{
+				System.out.println("YES");
+			}
+		}
+	}
+}
