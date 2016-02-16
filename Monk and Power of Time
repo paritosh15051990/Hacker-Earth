@@ -1,0 +1,40 @@
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
+public class test {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Deque<Integer> calling = new ArrayDeque<Integer>();
+		Deque<Integer> ideal = new ArrayDeque<Integer>();
+		int proc =sc.nextInt();
+		int num1,num2;
+		for(int j=0;j<proc;j++){
+			num1=sc.nextInt();
+			calling.add(num1);
+			}
+		for(int j=0;j<proc;j++){
+			num2=sc.nextInt();
+			ideal.add(num2);
+			
+		}
+		int count=0;
+		while(!(calling.isEmpty())){
+			if(calling.peekFirst().equals(ideal.peekFirst())){
+				calling.removeFirst();
+				ideal.removeFirst();
+				count++;
+				//System.out.println("voila");
+			}
+			else{
+				int j= calling.removeFirst();
+				calling.addLast(j);
+				//System.out.println(calling);
+				count++;
+			}
+		}
+		System.out.println(count);
+	}
+}
