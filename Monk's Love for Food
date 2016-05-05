@@ -1,0 +1,44 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Stack;
+import java.util.Scanner;
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+       //InputStreamReader is =null;
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		//int i = Integer.parseInt(br.readLine());
+		Scanner sc = new Scanner(System.in);
+		Stack st = new Stack(); 
+		//int val=sc.nextInt();
+		String[] input;
+		  
+		try{
+			int T= Integer.parseInt(br.readLine());
+			//System.out.println("k is "+T);
+		while(T!=0){
+			
+			//System.out.println(br.readLine());
+			input=br.readLine().split(" ");
+			//System.out.println(input);
+			if(input.length==2){
+			st.push(input[1]);
+				//System.out.println(st);
+			}
+			if(input.length==1){
+				if(st.isEmpty()){
+					System.out.println("No Food");
+				}
+				else{
+					System.out.println(st.pop());
+				}
+			}
+			T=T-1;
+			}
+		}
+		catch(Exception e){
+			System.out.println("oopa");
+		}
+		
+    }
+}
