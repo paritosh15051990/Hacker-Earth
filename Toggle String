@@ -1,0 +1,30 @@
+import java.util.*;
+public class Java_code {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String word = sc.next();
+		StringBuilder fword = new StringBuilder();
+		char[] rword= word.toCharArray();
+		int length = word.length();
+		int count=0,i=0;
+		char c ;
+		while(count!=length){
+			c = word.charAt(i);
+			if(c>'Z'){
+				c=(char)(c-32);
+				fword.append(c);
+			}
+			else{
+				c= (char) (c+32);
+				fword.append(c);
+			}
+			i=i+1;
+			
+			count=count+1;
+		}
+		System.out.println(fword);
+
+	}
+
+}
