@@ -1,0 +1,94 @@
+import java.util.*;
+public class Java_code {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int testcase = sc.nextInt();
+		int numdriver;
+		int numpeople,count=0,position=0,index=0;
+		while(testcase!=0){
+			numdriver=sc.nextInt();
+			int[] height = new int[numdriver];
+			for(int i=0;i<numdriver;i++){
+				height[i]=sc.nextInt();
+			}
+			int[] hcount = new int[numdriver];
+			int[] hcount1 = new int[numdriver];
+			for(int j=0;j<numdriver;j++){
+				count=0;
+				for(int k=j+1;k<numdriver;k++){	
+				if(height[j]>= height[k]){
+					if(k+1 < numdriver && height[j]==height[k]&& height[k]>height[k+1]){
+						count=count+1;
+						break;
+					}
+					else{
+						count=count+1;
+					}
+				}
+				else if(k+1 < numdriver && (height[j]<height[k]) && height[k]>height[k+1] ){
+					count=count+1;
+					break;
+				
+				}
+				else if(height[j]<height[k]){
+					count=count+1;
+				}
+				
+				}
+				hcount[j]=count;
+				
+			}
+			
+			for(int j=numdriver-1;j>=0;j--){
+				count=0;
+				for(int k=j-1;k>=0;k--){	
+				if(height[j]>= height[k]){
+					//count=count+1;
+					if(k-1 >= 0 && height[j]==height[k]&& height[k]>height[k+1]){
+						count=count+1;
+						break;
+					}
+					else{
+						count=count+1;
+					}
+				}
+				else if( k-1 >= 0 && (height[j]<height[k]) && height[k]>height[k+1] ){
+					break;
+				
+				}
+				else if(height[j]<height[k]){
+					count=count+1;
+				}
+				
+				}
+				hcount1[j]=count;
+			
+			}
+			
+			
+			int max=0;
+			for (int i=0;i<hcount.length;i++){
+				hcount[i]=hcount[i]+hcount1[i];
+				hcount[i]=hcount[i]*i;
+				
+				if(hcount[i]>max){
+					index =i;
+					max=hcount[i];
+				}
+			
+			}
+			System.out.println(index+1);
+			
+			testcase=testcase-1;
+		}
+	
+	
+	}
+		
+		
+		
+		
+	}
+
+
