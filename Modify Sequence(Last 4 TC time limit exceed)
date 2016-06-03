@@ -1,0 +1,60 @@
+import java.util.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+public class Java_code {
+
+	public static void main(String[] args) throws Exception {
+		Scanner sc = new Scanner(System.in);
+		int tc = sc.nextInt();
+	    int num1,num2,count;
+		String[] space;
+		long [] arr = new long[tc];
+		int i=0;
+		
+		for(int l=0;l<tc;l++){
+	    	arr[i]=sc.nextLong();
+			i=i+1;
+	    	tc=tc-1;
+	    }
+		int j=0;
+		while(true){
+			
+			if(arr.length>1 && (int)arr[j]!=0){
+			arr[j]=arr[j]-1;
+			arr[j+1]=arr[j+1]-1;
+			}
+			else{
+				
+				break;
+			}
+			j=j+1;
+			if(j==arr.length-1){
+				j=0;
+			}
+			
+		}
+		
+		int count1=0;
+		for(int k =0 ;k < arr.length;k++){
+			if(arr[k]==0){
+				count1=count1+1;
+			}
+		}
+		
+		if(count1==arr.length){
+			System.out.println("YES");
+		}
+		else{
+			System.out.println("NO");
+		}
+		
+		
+	
+	}
+		
+		
+		
+		
+	}
+
+
